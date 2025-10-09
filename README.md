@@ -1,104 +1,129 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnexi-launch%2Ffinwise-landing-page)
-
-# Finwise - Next.js + Tailwind Landing Page Template
-
-Finwise is a lightweight, easily configurable, and customizable **Next.js** and **Tailwind CSS** landing page template. It’s built to be adaptable, performant, and perfect for any product launch, portfolio, or promotional site.
-
-Try out the demo here: [https://finwise-omega.vercel.app](https://finwise-omega.vercel.app).
-
-Please check out the documentation below to get started.
-
----
-
-## Features
-
-- **Next.js** app router with **TypeScript**
-- **Tailwind CSS** v3 for flexible styling customization
-- Smooth transitions powered by **Framer Motion**
-- Built-in **font optimization** with [next/font](https://nextjs.org/docs/app/api-reference/components/font)
-- Automatic **image optimization** via [next/image](https://nextjs.org/docs/app/building-your-application/optimizing/images)
-- Access to **31+ icon packs** via [React Icons](https://react-icons.github.io/react-icons/)
-- Near-perfect **Lighthouse score**
-- Modular, responsive, and **scalable components**
-- **Free lifetime updates**
+<div align="center">
+  <img src="public/images/diaum-logo.png" alt="Diaum Logo" width="200" height="200">
+  
+  <h1>Diaum</h1>
+  
+  <p>
+    <a href="https://github.com/Diaum/website/issues">🐛 Reportar Bug</a>
+    •
+    <a href="https://github.com/Diaum/website/issues">💡 Solicitar Feature</a>
+  </p>
+</div>
 
 ---
 
-## Sections
+## Sobre o Diaum
 
-- Hero
-- Partners or Clients Logos
-- Features
-- Pricing
-- Testimonials
-- FAQ
-- Statistics
-- CTA
-- Footer
+O **Diaum** é um aplicativo revolucionário que ajuda homens a lutarem contra o vício em pornografia através de bloqueio inteligente. Combinamos técnicas avançadas de psicologia e tecnologia com hardware especializado para acabar de vez com esse vício, oferecendo uma solução completa e eficaz para quem busca liberdade e controle sobre sua vida.
 
----
+### 🎯 Nossa Missão
 
-## Getting Started
-
-### Prerequisites
-
-Before starting, make sure you have the following installed:
-
-- **Node.js**: Version 18 or later
-- **npm**: Version 8 or later (bundled with Node.js)
-- **Code editor**: [VS Code](https://code.visualstudio.com/) is recommended.
-
-### Steps
-
-1. **Install dependencies**: Run `npm install`
-2. **Run the development server**: `npm run dev`
-3. **View your project**: Open [localhost:3000](http://localhost:3000)
+Transformar vidas através da tecnologia, oferecendo ferramentas inteligentes que combinam:
+- **Bloqueio Inteligente**: Tecnologia avançada para bloquear conteúdo inadequado
+- **Psicologia Aplicada**: Técnicas comprovadas para mudança de hábitos
+- **Hardware Especializado**: Dispositivos que reforçam o bloqueio
+- **Suporte Contínuo**: Acompanhamento e motivação durante toda a jornada
 
 ---
 
-## Customization
+## 🚀 Tecnologias Utilizadas
 
-1. **Edit colors**: Update `globals.css` for primary, secondary, background, and accent colors.
-2. **Update site details**: Customize `siteDetails.ts` in `/src/data` to reflect your brand and site info.
-3. **Modify content**: Files in `/src/data` handle data for navigation, features, pricing, testimonials, and more.
-4. **Replace favicon**: Add your icon to `/src/app/favicon.ico`.
-5. **Add images**: Update `public/images` for Open Graph metadata (e.g., `og-image.jpg`, `twitter-image.jpg`).
-
----
-
-## Deploying on Vercel
-
-The fastest way to deploy Finwise is on [Vercel](https://vercel.com/). Simply click the "Deploy with Vercel" button at the top of this README, or check the [Next.js deployment docs](https://vercel.com/docs/deployments/deployment-methods) for other deployment options.
+- **Next.js** com App Router e **TypeScript**
+- **Tailwind CSS** v3 para estilização flexível
+- Animações suaves com **Framer Motion**
+- Otimização de fontes com [next/font](https://nextjs.org/docs/app/api-reference/components/font)
+- Otimização automática de imagens via [next/image](https://nextjs.org/docs/app/building-your-application/optimizing/images)
+- Acesso a **31+ pacotes de ícones** via [React Icons](https://react-icons.github.io/react-icons/)
+- Score Lighthouse quase perfeito
+- Componentes modulares, responsivos e **escaláveis**
 
 ---
 
-## Contributing
+## 🛠️ Como Executar o Projeto
 
-Finwise is an open-source project, and we welcome contributions from the community! If you have ideas for new components, designs, layouts, or optimizations, please join us in making Finwise even better.
+### Pré-requisitos
 
-### How to Contribute
+Antes de começar, certifique-se de ter instalado:
 
-1. **Fork the Repository**: Clone it locally.
-2. **Create a New Branch**: For example, `feature/new-section` or `fix/style-issue`.
-3. **Develop and Test**: Make sure your changes work and don't break existing functionality.
-4. **Submit a Pull Request**: Open a pull request with a clear description of your changes, and we'll review it.
+- **Node.js**: Versão 18 ou superior
+- **npm**: Versão 8 ou superior (vem junto com o Node.js)
+- **Editor de código**: [VS Code](https://code.visualstudio.com/) é recomendado
 
-### Ideas for Contributions
+### Passos
 
-- New component sections (team introductions, comparison table, case studies, etc.)
-- Additional page variants (e.g., agency, eCommerce, portfolio layouts)
-- Additional themes
-- Documentation updates, tutorials, or guides
+1. **Instalar dependências**: Execute `npm install`
+2. **Executar servidor de desenvolvimento**: `npm run dev`
+3. **Visualizar o projeto**: Abra [localhost:3000](http://localhost:3000)
 
 ---
 
-## Community and Support
+## 📱 Seções do Site
 
-Join our community discussions on GitHub to share ideas, ask questions, or suggest improvements. Let’s build something amazing together!
+- **Hero** - Apresentação principal com título e call-to-action
+- **Logos** - Logos de parceiros/clientes
+- **Features** - Recursos e benefícios do app
+- **Pricing** - Planos e preços
+- **Testimonials** - Depoimentos de usuários
+- **FAQ** - Perguntas frequentes
+- **Statistics** - Estatísticas de impacto
+- **CTA** - Call-to-action final
+- **Footer** - Rodapé com links importantes
 
+---
 
---- 
+## 🎨 Personalização
 
-## License
+1. **Editar cores**: Atualize `globals.css` para cores primárias, secundárias, background e accent
+2. **Atualizar detalhes do site**: Personalize `siteDetails.ts` em `/src/data` para refletir sua marca
+3. **Modificar conteúdo**: Arquivos em `/src/data` gerenciam dados de navegação, features, preços, depoimentos e mais
+4. **Substituir favicon**: Adicione seu ícone em `/src/app/favicon.ico`
+5. **Adicionar imagens**: Atualize `public/images` para metadados Open Graph
 
-This project is open-source and available under the MIT License. Feel free to use, modify, and distribute it for personal or commercial projects.
+---
+
+## 🚀 Deploy
+
+A forma mais rápida de fazer deploy do Diaum é no [Vercel](https://vercel.com/). Consulte a [documentação de deploy do Next.js](https://vercel.com/docs/deployments/deployment-methods) para outras opções de deploy.
+
+---
+
+## 🤝 Contribuindo
+
+O Diaum é um projeto open-source e damos as boas-vindas a contribuições da comunidade! Se você tem ideias para novos componentes, designs, layouts ou otimizações, junte-se a nós para tornar o Diaum ainda melhor.
+
+### Como Contribuir
+
+1. **Fork o Repositório**: Clone localmente
+2. **Criar uma Nova Branch**: Por exemplo, `feature/nova-secao` ou `fix/problema-estilo`
+3. **Desenvolver e Testar**: Certifique-se de que suas mudanças funcionam e não quebram funcionalidades existentes
+4. **Enviar Pull Request**: Abra um pull request com uma descrição clara de suas mudanças
+
+### Ideias para Contribuições
+
+- Novas seções de componentes (introdução da equipe, tabela de comparação, estudos de caso, etc.)
+- Variantes de página adicionais (layouts de agência, eCommerce, portfólio)
+- Temas adicionais
+- Atualizações de documentação, tutoriais ou guias
+
+---
+
+## 💬 Comunidade e Suporte
+
+Junte-se às nossas discussões da comunidade no GitHub para compartilhar ideias, fazer perguntas ou sugerir melhorias. Vamos construir algo incrível juntos!
+
+- 🐛 [Reportar Bug](https://github.com/Diaum/website/issues)
+- 💡 [Solicitar Feature](https://github.com/Diaum/website/issues)
+- 💬 [Discutir no GitHub](https://github.com/Diaum/website/discussions)
+
+---
+
+## 📄 Licença
+
+Este projeto é open-source e está disponível sob a Licença MIT. Sinta-se livre para usar, modificar e distribuir para projetos pessoais ou comerciais.
+
+---
+
+<div align="center">
+  <p>Feito com ❤️ por <a href="https://github.com/horacio3m">Horacio Mota</a></p>
+    <p>Transformando vidas através da tecnologia</p>
+</div>
