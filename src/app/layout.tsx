@@ -14,17 +14,39 @@ const sourceSans = Source_Sans_3({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: siteDetails.metadata.title,
   description: siteDetails.metadata.description,
+  keywords: [`${siteDetails.siteName}`, 'app', 'bloqueio', 'conteúdo', 'pornografia', 'hábitos', 'foco', 'controle', 'vida'],
+  authors: [{ name: siteDetails.siteName }],
+  creator: siteDetails.siteName,
+  publisher: siteDetails.siteName,
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
     url: siteDetails.siteUrl,
     type: 'website',
+    locale: siteDetails.locale,
+    siteName: siteDetails.siteName,
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/diaum-logo.png',
         width: 1200,
-        height: 675,
-        alt: siteDetails.siteName,
+        height: 630,
+        alt: `${siteDetails.metadata.title}`,
       },
     ],
   },
@@ -32,7 +54,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
-    images: ['/images/twitter-image.jpg'],
+    images: ['/images/diaum-logo.png'],
+  },
+  alternates: {
+    canonical: siteDetails.siteUrl,
   },
 }
 
@@ -42,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={`${manrope.className} ${sourceSans.className} antialiased`}>
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
         <Header />

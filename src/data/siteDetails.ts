@@ -1,13 +1,13 @@
 export const siteDetails = {
   siteName: 'diaum',
-  siteUrl: 'https://finwise-omega.vercel.app/',
+  siteUrl: 'https://diaum.app/',
   metadata: {
-    title: 'diaum - Livre, Focado e no Controle da Sua Vida',
+    title: 'diaum - App de Bloqueio de Conteúdo | Livre, Focado e no Controle da Sua Vida',
     description:
-      'Um App para bloquear conteudos e transformar seus hábitos e vencendo a pornografia desde o Dia Um.',
+      'Transforme seus hábitos com o diaum - o app que bloqueia pornografia e conteúdo inadequado. Seja livre, focado e no controle da sua vida desde o Dia Um. Download gratuito!',
   },
   language: 'pt-br',
   locale: 'pt-BR',
-  siteLogo: `${process.env.BASE_PATH || ''}/images/logo.png`,
+  siteLogo: `${process.env.BASE_PATH || ''}/images/diaum-logo.png`,
   googleAnalyticsId: '',
 }
