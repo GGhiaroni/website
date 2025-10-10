@@ -7,6 +7,7 @@ import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2'
 import Container from './Container'
 import { siteDetails } from '@/data/siteDetails'
 import { menuItems } from '@/data/menuItems'
+import Image from 'next/image'
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,11 +21,14 @@ const Header: React.FC = () => {
       <Container className="!px-0">
         <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="bg-lime-400 text-black font-bold text-xl rounded-lg px-3 py-1">1.</div>
-            <span className="manrope text-xl font-semibold text-foreground cursor-pointer">
-              {siteDetails.siteName}
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              width="40"
+              height="40"
+              src="/images/diaum-logo.png" 
+              alt={siteDetails.siteName}
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Menu */}
