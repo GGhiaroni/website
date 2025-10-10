@@ -8,6 +8,7 @@
     •
     <a href="https://github.com/Diaum/website/issues">💡 Solicitar Feature</a>
   </p>
+
 </div>
 
 ---
@@ -116,6 +117,11 @@ Junte-se às nossas discussões da comunidade no GitHub para compartilhar ideias
 - 💬 [Discutir no GitHub](https://github.com/Diaum/website/discussions)
 
 ---
+
+## Contribuidores
+<a href="https://github.com/Diaum/website/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Diaum/website" />
+</a>
 
 ## 📄 Licença
 
