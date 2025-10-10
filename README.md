@@ -20,6 +20,7 @@ O **Diaum** é um aplicativo revolucionário que ajuda homens a lutarem contra o
 ### 🎯 Nossa Missão
 
 Transformar vidas através da tecnologia, oferecendo ferramentas inteligentes que combinam:
+
 - **Bloqueio Inteligente**: Tecnologia avançada para bloquear conteúdo inadequado
 - **Psicologia Aplicada**: Técnicas comprovadas para mudança de hábitos
 - **Hardware Especializado**: Dispositivos que reforçam o bloqueio
@@ -119,6 +120,7 @@ Junte-se às nossas discussões da comunidade no GitHub para compartilhar ideias
 ---
 
 ## Contribuidores
+
 <a href="https://github.com/Diaum/website/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Diaum/website" />
 </a>
