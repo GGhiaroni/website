@@ -11,7 +11,18 @@
   --primary-accent: #e5c230;
   --foreground-accent: #454545;
   --hero-background: #f3f3f5;
+
+  --primary-accent: #e5c230;
+  --foreground-accent: #454545;
+  --hero-background: #f3f3f5;
+
+  --footer-background: #2d2d2d;
+  --footer-text: #f3f3f5;
+  --footer-link: #E1FF57;
+  --footer-link-hover: #F7FF9F;
+  --footer-divider: linear-gradient(90deg, #E1FF57, #F7FF9F, #E1FF57);
 }
+
 
 html {
   @apply scroll-smooth;

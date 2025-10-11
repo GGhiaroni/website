@@ -1,101 +1,205 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from 'next/link';
+import Script from 'next/script';
+import React from 'react';
+import Image from 'next/image';
+import { FaEnvelope } from 'react-icons/fa';
 
-import { siteDetails } from '@/data/siteDetails'
-import { footerDetails } from '@/data/footer'
-import { getPlatformIconByName } from '@/utils'
-import Image from 'next/image'
+import { siteDetails } from '@/data/siteDetails';
+import { footerDetails } from '@/data/footer';
+import { getPlatformIconByName } from '@/utils';
+
+type ContactPointLD = {
+  '@type': 'ContactPoint';
+  email?: string;
+  telephone?: string;
+  contactType: 'customer support' | string;
+};
+
+type OrganizationLD = {
+  '@context': 'https://schema.org';
+  '@type': 'Organization';
+  name: string;
+  url: string;
+  logo?: string;
+  sameAs?: string[];
+  contactPoint?: ContactPointLD[];
+};
+
+function buildOrganizationJsonLd(): string {
+  const sameAs = Object.values(footerDetails.socials ?? {}).filter(
+    (v): v is string => Boolean(v)
+  );
+
+  const contactPoint: ContactPointLD[] = [];
+
+  if (footerDetails.email) {
+    contactPoint.push({
+      '@type': 'ContactPoint',
+      email: footerDetails.email,
+      contactType: 'customer support',
+    });
+  }
+
+  if (footerDetails.telephone) {
+    contactPoint.push({
+      '@type': 'ContactPoint',
+      telephone: footerDetails.telephone,
+      contactType: 'customer support',
+    });
+  }
+
+  const org: OrganizationLD = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: siteDetails.siteName,
+    url: siteDetails.siteUrl,
+    logo: siteDetails.logoUrl,
+    sameAs: sameAs.length ? sameAs : undefined,
+    contactPoint: contactPoint.length ? contactPoint : undefined,
+  };
+
+  return JSON.stringify(org);
+}
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-hero-background text-foreground py-10">
-      <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <footer className="bg-[var(--footer-background)] text-[var(--footer-text)]">
+      <div
+        className="h-[2px] w-full opacity-70"
+        style={{ backgroundImage: 'var(--footer-divider)' }}
+        aria-hidden="true"
+      />
+
+      <Script id="org-schema" type="application/ld+json">
+        {buildOrganizationJsonLd()}
+      </Script>
+
+      <div className="py-10 max-w-7xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
-          <Link href="/" className="flex items-center">
+          <Link
+            href="/"
+            className="flex items-center gap-2"
+            aria-label={`${siteDetails.siteName} home`}
+          >
             <Image
-              width="40"
-              height="40"
-              src="/images/diaum-logo.png" 
-              alt={siteDetails.siteName} 
+              width={40}
+              height={40}
+              src="/images/diaum-logo.png"
+              alt={siteDetails.siteName}
               className="h-8 w-auto"
+              priority
             />
+            <h3 className="manrope text-xl font-semibold cursor-pointer hover:text-[var(--footer-link)] transition-colors">
+              {siteDetails.siteName}
+            </h3>
           </Link>
-          <p className="mt-3.5 text-foreground-accent">{footerDetails.subheading}</p>
+          <p className="mt-3.5 text-[var(--footer-muted)]">
+            {footerDetails.subheading}
+          </p>
         </div>
-        <div>
-          <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-          <ul className="text-foreground-accent">
-            {footerDetails.quickLinks.map(link => (
+
+        <nav aria-label="Links rápidos">
+          <h4 className="text-lg font-semibold mb-4 text-[var(--footer-link)]">
+            Links Rápidos
+          </h4>
+          <ul className="text-[var(--footer-text)]" role="list">
+            {footerDetails.quickLinks.map((link) => (
               <li key={link.text} className="mb-2">
-                <Link href={link.url} className="hover:text-foreground">
+                <Link
+                  href={link.url}
+                  className="hover:text-[var(--footer-link)] transition-colors"
+                >
                   {link.text}
                 </Link>
               </li>
             ))}
+            <li className="mb-2">
+              <Link
+                href="/about"
+                className="hover:text-[var(--footer-link)] transition-colors"
+              >
+                Sobre
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-[var(--footer-link)] transition-colors"
+              >
+                Política de Privacidade
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link
+                href="/terms"
+                className="hover:text-[var(--footer-link)] transition-colors"
+              >
+                Termos de Uso
+              </Link>
+            </li>
           </ul>
-        </div>
+        </nav>
+
         <div>
-          <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+          <h4 className="text-lg font-semibold mb-4 text-[var(--footer-link)]">
+            Contato
+          </h4>
 
           {footerDetails.email && (
             <a
               href={`mailto:${footerDetails.email}`}
-              className="block text-foreground-accent hover:text-foreground"
+              className="flex items-center gap-2 text-[var(--footer-text)] hover:text-[var(--footer-link)] transition-colors"
+              aria-label={`Enviar e-mail para ${footerDetails.email}`}
             >
-              Email: {footerDetails.email}
+              <FaEnvelope className="w-5 h-5" aria-hidden="true" />
+              <span>{footerDetails.email}</span>
             </a>
           )}
 
           {footerDetails.telephone && (
             <a
               href={`tel:${footerDetails.telephone}`}
-              className="block text-foreground-accent hover:text-foreground"
+              className="block mt-2 text-[var(--footer-text)] hover:text-[var(--footer-link)] transition-colors"
+              aria-label={`Ligar para ${footerDetails.telephone}`}
             >
-              Phone: {footerDetails.telephone}
+              Telefone: {footerDetails.telephone}
             </a>
           )}
 
           {footerDetails.socials && (
-            <div className="mt-5 flex items-center gap-5 flex-wrap">
-              {Object.keys(footerDetails.socials).map(platformName => {
-                if (platformName && footerDetails.socials[platformName]) {
-                  return (
-                    <Link
-                      href={footerDetails.socials[platformName]}
-                      key={platformName}
-                      aria-label={platformName}
-                    >
-                      {getPlatformIconByName(platformName)}
-                    </Link>
-                  )
-                }
-              })}
-            </div>
+            <nav aria-label="Redes sociais" className="mt-5">
+              <ul className="flex items-center gap-5 flex-wrap" role="list">
+                {Object.entries(footerDetails.socials).map(
+                  ([platformName, url]) =>
+                    url && (
+                      <li key={platformName}>
+                        <a
+                          href={url}
+                          target="_blank"
+                          rel="me noopener noreferrer"
+                          aria-label={platformName}
+                          className="text-2xl text-[var(--footer-text)] hover:text-[var(--footer-link)] transition-colors"
+                          title={platformName}
+                        >
+                          {getPlatformIconByName(platformName)}
+                        </a>
+                      </li>
+                    )
+                )}
+              </ul>
+            </nav>
           )}
         </div>
       </div>
-      <div className="mt-8 md:text-center text-foreground-accent px-6">
+
+      <div className="md:text-center text-[var(--footer-muted)] px-6 pb-8">
         <p>
-          Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}. All rights reserved.
-        </p>
-        <p className="text-sm mt-2 text-gray-500">
-          Made with &hearts; by{' '}
-          <a href="https://nexilaunch.com" target="_blank">
-            Nexi Launch
-          </a>
-        </p>
-        <p className="text-sm mt-2 text-gray-500">
-          UI kit by{' '}
-          <a
-            href="https://ui8.net/youthmind/products/fintech-finance-mobile-app-ui-kit"
-            target="_blank"
-          >
-            Youthmind
-          </a>
+          Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}. Todos os
+          direitos reservados.
         </p>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
