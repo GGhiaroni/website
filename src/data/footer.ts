@@ -7,7 +7,7 @@ export const footerDetails: {
   telephone: string
   socials: ISocials
 } = {
-  subheading: 'Empowering businesses with cutting-edge financial technology solutions.',
+  subheading: 'Um app para bloqueio de conteudo adulto e criaçao de novos habitos.',
   quickLinks: [
     {
       text: 'Features',
@@ -22,16 +22,11 @@ export const footerDetails: {
       url: '#testimonials',
     },
   ],
-  email: 'address@yoursite.com',
-  telephone: '+1 (123) 456-7890',
+  email: 'contato@diaum.app',
+  telephone: '',
   socials: {
-    // github: 'https://github.com',
-    // x: 'https://twitter.com/x',
-    twitter: 'https://twitter.com/Twitter',
-    facebook: 'https://facebook.com',
-    // youtube: 'https://youtube.com',
+    github: 'https://github.com/Diaum',
     linkedin: 'https://www.linkedin.com',
-    // threads: 'https://www.threads.net',
-    instagram: 'https://www.instagram.com',
+    instagram: 'https://www.instagram.com/diaum.app',
   },
 }
