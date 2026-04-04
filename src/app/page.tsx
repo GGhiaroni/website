@@ -4,7 +4,6 @@
 import Heroi from '@/componentes/heroi/Heroi'
 import Funcionalidades from '@/componentes/funcionalidades/Funcionalidades'
 import FuncionalidadesAvancadas from '@/componentes/funcionalidades/FuncionalidadesAvancadas'
-import SobreCriador from '@/componentes/cta/SobreCriador'
 import Bastidores from '@/componentes/cta/Bastidores'
 import ChamadaAcao from '@/componentes/cta/ChamadaAcao'
 import Container from '@/componentes/comuns/Container'
@@ -17,7 +16,6 @@ const PaginaInicial: React.FC = () => {
         <Funcionalidades />
       </Container>
       <FuncionalidadesAvancadas />
-      <SobreCriador />
       <Bastidores />
       <Container>
         <ChamadaAcao />

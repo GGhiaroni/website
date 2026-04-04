@@ -1,9 +1,9 @@
 // Dados da seção Hero
 
 export const dadosHeroi = {
-  titulo: 'Livre, Focado e no Controle da Sua Vida.',
+  titulo: 'Combata o vicio em pornografia em 7 minutos',
   subtitulo:
-    'Um app simples e eficaz para bloquear conteudos e transformar seus habitos, vencendo a pornografia desde o Dia Um.',
+    'Crie conexoes reais com pessoas que passam pelo mesmo problema que voce em chats anonimos e seguros.',
   imagemCentral: '/images/hero-mockup.webp',
   textoAuxiliar: 'Sem cartao de credito necessario',
 }

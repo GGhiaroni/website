@@ -31,7 +31,11 @@ export const metadata: Metadata = {
   creator: detalhesSite.nomeSite,
   publisher: detalhesSite.nomeSite,
   icons: {
-    icon: [{ url: '/favicon.ico', sizes: 'any' }],
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/diaum-logo.png', type: 'image/png' },
+    ],
+    apple: [{ url: '/images/diaum-logo.png' }],
   },
   robots: {
     index: true,

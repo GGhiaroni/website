@@ -1,4 +1,4 @@
-// Componente de cabeçalho/navegação principal
+// Componente de cabeçalho/navegação principal — estilo elegante e compacto
 
 'use client'
 
@@ -21,25 +21,28 @@ const Cabecalho: React.FC = () => {
   return (
     <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
       <Container className="!px-0">
-        <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
+        <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-6">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-2">
             <Image
-              width="40"
-              height="40"
+              width="32"
+              height="32"
               src="/images/diaum-logo.png"
               alt={detalhesSite.nomeSite}
-              className="h-10 w-auto"
+              className="h-8 w-auto"
             />
+            <span className="text-sm font-semibold tracking-wide text-foreground hidden sm:inline">
+              {detalhesSite.nomeSite}
+            </span>
           </Link>
 
           {/* Menu Desktop */}
-          <ul className="hidden md:flex space-x-6 items-center">
+          <ul className="hidden md:flex space-x-8 items-center">
             {itensMenu.map(item => (
               <li key={item.texto}>
                 <Link
                   href={item.url}
-                  className="text-foreground hover:text-foreground-accent transition-colors"
+                  className="text-sm text-foreground-accent hover:text-foreground transition-colors"
                 >
                   {item.texto}
                 </Link>
@@ -48,7 +51,7 @@ const Cabecalho: React.FC = () => {
             <li>
               <Link
                 href="#cta"
-                className="text-white bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors"
+                className="text-sm text-white bg-primary hover:bg-primary-accent px-6 py-2 rounded-full transition-colors"
               >
                 Download
               </Link>
@@ -60,14 +63,14 @@ const Cabecalho: React.FC = () => {
             <button
               onClick={alternarMenu}
               type="button"
-              className="bg-primary text-white focus:outline-none rounded-full w-10 h-10 flex items-center justify-center"
+              className="bg-primary text-white focus:outline-none rounded-full w-9 h-9 flex items-center justify-center"
               aria-controls="menu-mobile"
               aria-expanded={aberto}
             >
               {aberto ? (
-                <HiOutlineXMark className="h-6 w-6" aria-hidden="true" />
+                <HiOutlineXMark className="h-5 w-5" aria-hidden="true" />
               ) : (
-                <HiBars3 className="h-6 w-6" aria-hidden="true" />
+                <HiBars3 className="h-5 w-5" aria-hidden="true" />
               )}
               <span className="sr-only">Alternar navegacao</span>
             </button>
@@ -86,12 +89,12 @@ const Cabecalho: React.FC = () => {
         leaveTo="opacity-0 scale-95"
       >
         <div id="menu-mobile" className="md:hidden bg-white shadow-lg">
-          <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
+          <ul className="flex flex-col space-y-3 pt-1 pb-5 px-6">
             {itensMenu.map(item => (
               <li key={item.texto}>
                 <Link
                   href={item.url}
-                  className="text-foreground hover:text-foreground-accent block"
+                  className="text-sm text-foreground hover:text-foreground-accent block"
                   onClick={alternarMenu}
                 >
                   {item.texto}
@@ -101,7 +104,7 @@ const Cabecalho: React.FC = () => {
             <li>
               <Link
                 href="#cta"
-                className="text-white bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit"
+                className="text-sm text-white bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit"
                 onClick={alternarMenu}
               >
                 Download

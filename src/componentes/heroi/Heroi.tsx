@@ -1,4 +1,4 @@
-// Seção Hero — apresentação principal com título, subtítulo e botões de download
+// Seção Hero — badges, título e subtítulo à esquerda, mockup iPhone à direita
 
 import React from 'react'
 import Image from 'next/image'
@@ -11,7 +11,7 @@ const Heroi: React.FC = () => {
   return (
     <section
       id="heroi"
-      className="relative flex items-center justify-center pb-0 pt-32 md:pt-40 px-5"
+      className="relative min-h-screen flex items-center pb-0 pt-20 md:pt-24 px-5"
     >
       {/* Fundo com grid sutil */}
       <div className="absolute left-0 top-0 bottom-0 -z-10 w-full">
@@ -21,27 +21,57 @@ const Heroi: React.FC = () => {
       {/* Gradiente de transição inferior */}
       <div className="absolute left-0 right-0 bottom-0 backdrop-blur-[2px] h-40 bg-gradient-to-b from-transparent via-[rgba(245,245,245,0.5)] to-[rgba(229,229,229,0.5)]" />
 
-      <div className="text-center">
-        <h1 className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto">
-          {dadosHeroi.titulo}
-        </h1>
-        <p className="mt-4 text-foreground-accent max-w-lg mx-auto">{dadosHeroi.subtitulo}</p>
-        <div className="mt-6 flex flex-col sm:flex-row items-center sm:gap-4 w-fit mx-auto">
-          <BotaoAppStore escuro />
-          <BotaoPlayStore escuro />
+      <div className="w-full max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
+          {/* Lado esquerdo — conteúdo */}
+          <div className="flex-1 text-center lg:text-left">
+            {/* Badges — acima do título */}
+            <div className="mb-5 flex flex-row items-center justify-center lg:justify-start gap-10">
+              <Image
+                src="/images/app-of-the-day.avif"
+                alt="App of the Day"
+                width={240}
+                height={60}
+                className="h-[60px] w-auto"
+              />
+              <Image
+                src="/images/reviews-badge.svg"
+                alt="Nota na App Store"
+                width={146}
+                height={34}
+                className="h-[34px] w-auto"
+              />
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl lg:leading-tight font-bold text-foreground max-w-lg md:max-w-xl">
+              {dadosHeroi.titulo}
+            </h1>
+            <p className="mt-4 text-foreground-accent max-w-lg text-lg">
+              {dadosHeroi.subtitulo}
+            </p>
+
+            {/* Botões de download */}
+            <div className="mt-6 flex flex-col sm:flex-row items-center lg:items-start sm:gap-4 w-fit mx-auto lg:mx-0">
+              <BotaoAppStore escuro />
+              <BotaoPlayStore escuro />
+            </div>
+          </div>
+
+          {/* Lado direito — mockup iPhone */}
+          <div className="flex-1 flex justify-center lg:justify-end">
+            <Image
+              src={dadosHeroi.imagemCentral}
+              width={320}
+              height={640}
+              quality={100}
+              sizes="(max-width: 768px) 260px, 320px"
+              priority={true}
+              unoptimized={true}
+              alt="mockup do app diaum"
+              className="w-72 lg:w-80 drop-shadow-2xl"
+            />
+          </div>
         </div>
-        <p className="mt-4 text-sm text-foreground-accent">{dadosHeroi.textoAuxiliar}</p>
-        <Image
-          src={dadosHeroi.imagemCentral}
-          width={384}
-          height={340}
-          quality={100}
-          sizes="(max-width: 768px) 100vw, 384px"
-          priority={true}
-          unoptimized={true}
-          alt="mockup do app diaum"
-          className="relative mt-12 md:mt-16 mx-auto z-10"
-        />
       </div>
     </section>
   )
