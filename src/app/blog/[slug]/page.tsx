@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { fetchBySlug, fetchPageBlocks, extractBlogPost } from '@/lib/notion'
-import { NotionRenderer } from '../../../components/NotionRenderer'
+import { RenderizadorNotion as NotionRenderer } from '@/componentes/blog/RenderizadorNotion'
 
 interface BlogPostPageProps {
   params: {
@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </header>
 
         <article className="prose prose-lg max-w-none">
-          <NotionRenderer blocks={blocks} />
+          <NotionRenderer blocos={blocks} />
         </article>
 
         {post.author && (

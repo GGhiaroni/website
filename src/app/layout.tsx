@@ -1,10 +1,12 @@
+// Layout raiz do site Diaum
+
 import type { Metadata } from 'next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Source_Sans_3, Manrope } from 'next/font/google'
 
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { siteDetails } from '@/data/siteDetails'
+import Cabecalho from '@/componentes/comuns/Cabecalho'
+import Rodape from '@/componentes/comuns/Rodape'
+import { detalhesSite } from '@/dados/detalhesSite'
 
 import './globals.css'
 
@@ -12,22 +14,22 @@ const manrope = Manrope({ subsets: ['latin'] })
 const sourceSans = Source_Sans_3({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: siteDetails.metadata.title,
-  description: siteDetails.metadata.description,
+  title: detalhesSite.metadata.titulo,
+  description: detalhesSite.metadata.descricao,
   keywords: [
-    `${siteDetails.siteName}`,
+    `${detalhesSite.nomeSite}`,
     'app',
     'bloqueio',
-    'conteúdo',
+    'conteudo',
     'pornografia',
-    'hábitos',
+    'habitos',
     'foco',
     'controle',
     'vida',
   ],
-  authors: [{ name: siteDetails.siteName }],
-  creator: siteDetails.siteName,
-  publisher: siteDetails.siteName,
+  authors: [{ name: detalhesSite.nomeSite }],
+  creator: detalhesSite.nomeSite,
+  publisher: detalhesSite.nomeSite,
   icons: {
     icon: [{ url: '/favicon.ico', sizes: 'any' }],
   },
@@ -43,33 +45,33 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: siteDetails.metadata.title,
-    description: siteDetails.metadata.description,
-    url: siteDetails.siteUrl,
+    title: detalhesSite.metadata.titulo,
+    description: detalhesSite.metadata.descricao,
+    url: detalhesSite.urlSite,
     type: 'website',
-    locale: siteDetails.locale,
-    siteName: siteDetails.siteName,
+    locale: detalhesSite.locale,
+    siteName: detalhesSite.nomeSite,
     images: [
       {
         url: '/images/diaum-logo.png',
         width: 1200,
         height: 630,
-        alt: `${siteDetails.metadata.title}`,
+        alt: `${detalhesSite.metadata.titulo}`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteDetails.metadata.title,
-    description: siteDetails.metadata.description,
+    title: detalhesSite.metadata.titulo,
+    description: detalhesSite.metadata.descricao,
     images: ['/images/diaum-logo.png'],
   },
   alternates: {
-    canonical: siteDetails.siteUrl,
+    canonical: detalhesSite.urlSite,
   },
 }
 
-export default function RootLayout({
+export default function LayoutRaiz({
   children,
 }: Readonly<{
   children: React.ReactNode
@@ -77,10 +79,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${manrope.className} ${sourceSans.className} antialiased`}>
-        {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
-        <Header />
+        {detalhesSite.googleAnalyticsId && (
+          <GoogleAnalytics gaId={detalhesSite.googleAnalyticsId} />
+        )}
+        <Cabecalho />
         <main>{children}</main>
-        <Footer />
+        <Rodape />
       </body>
     </html>
   )

@@ -2,25 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Paleta de cores — Preto e Branco */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --primary: #fed835;
-  --secondary: #304fff;
+  --foreground: #0a0a0a;
+  --primary: #000000;
+  --secondary: #ffffff;
 
-  --primary-accent: #e5c230;
-  --foreground-accent: #454545;
-  --hero-background: #f3f3f5;
+  --primary-accent: #1a1a1a;
+  --foreground-accent: #6b6b6b;
+  --hero-background: #f5f5f5;
 
-  --primary-accent: #e5c230;
-  --foreground-accent: #454545;
-  --hero-background: #f3f3f5;
-
-  --footer-background: #2d2d2d;
-  --footer-text: #f3f3f5;
-  --footer-link: #e1ff57;
-  --footer-link-hover: #f7ff9f;
-  --footer-divider: linear-gradient(90deg, #e1ff57, #f7ff9f, #e1ff57);
+  --footer-background: #0a0a0a;
+  --footer-text: #e5e5e5;
+  --footer-link: #ffffff;
+  --footer-link-hover: #d4d4d4;
+  --footer-muted: #999999;
+  --footer-divider: linear-gradient(90deg, #333, #666, #333);
 }
 
 html {
@@ -29,7 +27,6 @@ html {
 
 body {
   @apply text-lg;
-
   color: var(--foreground);
   background: var(--background);
   font-family: 'Source Sans 3', sans-serif;
@@ -60,10 +57,12 @@ h6 {
   font-style: normal;
 }
 
-#logos svg {
-  @apply w-fit h-10 sm:h-12;
+/* Cartão de funcionalidade */
+.cartao-funcionalidade {
+  @apply bg-white border border-gray-200 rounded-2xl p-6 transition-shadow hover:shadow-lg;
 }
 
-.benefit-section:last-of-type > div {
+/* Última seção de benefícios */
+.secao-beneficio:last-of-type > div {
   @apply mb-10;
 }

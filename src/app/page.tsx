@@ -1,55 +1,29 @@
-import Hero from '@/components/Hero'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Testimonials from '@/components/Testimonials'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Pricing from '@/components/Pricing/Pricing'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import FAQ from '@/components/FAQ'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Logos from '@/components/Logos'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Benefits from '@/components/Benefits/Benefits'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Container from '@/components/Container'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Section from '@/components/Section'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Stats from '@/components/Stats'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import CTA from '@/components/CTA'
+// Página inicial — estrutura inspirada no Luna Budgeting
+// Seç��es: Hero → Funcionalidades Básicas → Funcionalidades Avançadas → Sobre o Criador → Bastidores → CTA
 
-const HomePage: React.FC = () => {
+import Heroi from '@/componentes/heroi/Heroi'
+import Funcionalidades from '@/componentes/funcionalidades/Funcionalidades'
+import FuncionalidadesAvancadas from '@/componentes/funcionalidades/FuncionalidadesAvancadas'
+import SobreCriador from '@/componentes/cta/SobreCriador'
+import Bastidores from '@/componentes/cta/Bastidores'
+import ChamadaAcao from '@/componentes/cta/ChamadaAcao'
+import Container from '@/componentes/comuns/Container'
+
+const PaginaInicial: React.FC = () => {
   return (
     <>
-      <Hero />
-      {/* <Logos /> */}
+      <Heroi />
       <Container>
-        {/* <Benefits /> */}
-
-        {/* <Section
-          id="pricing"
-          title="Pricing"
-          description="Simple, transparent pricing. No surprises."
-        >
-          <Pricing />
-        </Section> */}
-
-        {/* <Section
-          id="testimonials"
-          title="What Our Clients Say"
-          description="Hear from those who have partnered with us."
-        >
-          <Testimonials />
-        </Section> */}
-
-        {/* <FAQ /> */}
-
-        {/* <Stats /> */}
-
-        {/* <CTA /> */}
+        <Funcionalidades />
+      </Container>
+      <FuncionalidadesAvancadas />
+      <SobreCriador />
+      <Bastidores />
+      <Container>
+        <ChamadaAcao />
       </Container>
     </>
   )
 }
 
-export default HomePage
+export default PaginaInicial

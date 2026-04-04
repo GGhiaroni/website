@@ -1,0 +1,36 @@
+// Funções utilitárias do projeto Diaum
+
+import {
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaThreads,
+  FaTwitter,
+  FaXTwitter,
+  FaYoutube,
+} from 'react-icons/fa6'
+
+// Retorna o ícone correspondente à plataforma social
+export const obterIconePlataforma = (nomePlataforma: string): JSX.Element | null => {
+  switch (nomePlataforma) {
+    case 'facebook':
+      return <FaFacebook size={24} className="min-w-fit" />
+    case 'github':
+      return <FaGithub size={24} className="min-w-fit" />
+    case 'instagram':
+      return <FaInstagram size={24} className="min-w-fit" />
+    case 'linkedin':
+      return <FaLinkedin size={24} className="min-w-fit" />
+    case 'threads':
+      return <FaThreads size={24} className="min-w-fit" />
+    case 'twitter':
+      return <FaTwitter size={24} className="min-w-fit" />
+    case 'youtube':
+      return <FaYoutube size={24} className="min-w-fit" />
+    case 'x':
+      return <FaXTwitter size={24} className="min-w-fit" />
+    default:
+      return null
+  }
+}
