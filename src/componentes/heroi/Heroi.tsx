@@ -1,13 +1,38 @@
-// Seção Hero — badges, título e subtítulo à esquerda, mockup iPhone à direita
+'use client'
 
-import React from 'react'
 import Image from 'next/image'
+import React, { useState } from 'react'
 
-import BotaoAppStore from '@/componentes/botoes/BotaoAppStore'
-import BotaoPlayStore from '@/componentes/botoes/BotaoPlayStore'
 import { dadosHeroi } from '@/dados/heroi'
 
 const Heroi: React.FC = () => {
+  const [enviado, setEnviado] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const formData = new FormData(e.currentTarget)
+
+    formData.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_KEY as string)
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setEnviado(true)
+      } else {
+        alert('Ops! Tivemos um problema interno. Tente novamente mais tarde.')
+      }
+    } catch (error) {
+      alert(`${error} Erro de conexão. Verifique sua internet e tente novamente.`)
+    }
+  }
+
   return (
     <section
       id="heroi"
@@ -22,7 +47,8 @@ const Heroi: React.FC = () => {
       <div className="absolute left-0 right-0 bottom-0 backdrop-blur-[2px] h-40 bg-gradient-to-b from-transparent via-[rgba(245,245,245,0.5)] to-[rgba(229,229,229,0.5)]" />
 
       <div className="w-full max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
+        {/* SÊNIOR: Reduzi o gap de 'lg:gap-20' para 'lg:gap-16' para aproximar os blocos */}
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           {/* Lado esquerdo — conteúdo */}
           <div className="flex-1 text-center lg:text-left">
             {/* Badges — acima do título */}
@@ -43,22 +69,47 @@ const Heroi: React.FC = () => {
               />
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl lg:leading-tight font-bold text-foreground max-w-lg md:max-w-xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl lg:leading-tight font-bold text-foreground max-w-lg md:max-w-xl mx-auto lg:mx-0">
               {dadosHeroi.titulo}
             </h1>
-            <p className="mt-4 text-foreground-accent max-w-lg text-lg">
-              {dadosHeroi.subtitulo}
+            <p className="mt-4 text-foreground-accent max-w-lg text-lg mx-auto lg:mx-0">
+              Inscreva-se na nossa lista de espera e seja um dos primeiros a transformar seus
+              hábitos. Vagas limitadas para o acesso antecipado.
             </p>
 
-            {/* Botões de download */}
-            <div className="mt-6 flex flex-col sm:flex-row items-center lg:items-start sm:gap-4 w-fit mx-auto lg:mx-0">
-              <BotaoAppStore escuro />
-              <BotaoPlayStore escuro />
+            {/* Nova Seção: Formulário de Waitlist */}
+            <div className="mt-8 w-full max-w-md mx-auto lg:mx-0">
+              {enviado ? (
+                <div className="p-4 rounded-2xl bg-green-50 border border-green-200 text-green-800 text-center lg:text-left animate-in fade-in zoom-in duration-300">
+                  <p className="font-semibold text-lg">🎉 Você está na lista!</p>
+                  <p className="text-sm mt-1">
+                    Fique de olho no seu e-mail, em breve entraremos em contato.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Seu melhor e-mail"
+                    required
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all placeholder:text-gray-400 text-foreground shadow-sm"
+                  />
+
+                  <button
+                    type="submit"
+                    className="w-full px-6 py-3.5 bg-black text-white font-semibold rounded-xl hover:bg-gray-800 focus:ring-4 focus:ring-gray-200 transition-all active:scale-[0.98] flex justify-center items-center gap-2 shadow-lg"
+                  >
+                    Garantir meu lugar na fila
+                  </button>
+                  <p className="text-xs text-gray-500 text-center lg:text-left mt-1">
+                    Não enviamos spam. Cancele quando quiser.
+                  </p>
+                </form>
+              )}
             </div>
           </div>
-
-          {/* Lado direito — mockup iPhone */}
-          <div className="flex-1 flex justify-center lg:justify-end">
+          <div className="flex-1 flex justify-center">
             <Image
               src={dadosHeroi.imagemCentral}
               width={320}
