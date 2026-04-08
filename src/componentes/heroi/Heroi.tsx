@@ -1,17 +1,32 @@
 'use client'
 
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { dadosHeroi } from '@/dados/heroi'
 
 const Heroi: React.FC = () => {
   const [enviado, setEnviado] = useState(false)
+  const [emailJaCadastrado, setEmailJaCadastrado] = useState(false)
+
+  useEffect(() => {
+    const statusCadastro = localStorage.getItem('waitlist_status')
+    if (statusCadastro === 'sucesso') {
+      setEnviado(true)
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const formData = new FormData(e.currentTarget)
+    const emailDigitado = formData.get('email') as string
+
+    const emailSalvo = localStorage.getItem('waitlist_email')
+    if (emailSalvo === emailDigitado) {
+      setEmailJaCadastrado(true)
+      return
+    }
 
     formData.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_KEY as string)
 
@@ -25,6 +40,9 @@ const Heroi: React.FC = () => {
 
       if (data.success) {
         setEnviado(true)
+        setEmailJaCadastrado(false)
+        localStorage.setItem('waitlist_status', 'sucesso')
+        localStorage.setItem('waitlist_email', emailDigitado)
       } else {
         alert('Ops! Tivemos um problema interno. Tente novamente mais tarde.')
       }
@@ -95,6 +113,12 @@ const Heroi: React.FC = () => {
                     required
                     className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all placeholder:text-gray-400 text-foreground shadow-sm"
                   />
+
+                  {emailJaCadastrado && (
+                    <p className="text-sm text-amber-600 font-medium text-center lg:text-left">
+                      Este e-mail já foi adicionado à lista de espera!
+                    </p>
+                  )}
 
                   <button
                     type="submit"
